@@ -59,14 +59,28 @@ function CalculateTotal(){
     const SubtotalText = document.getElementById("subtotaltaka");
     SubtotalText.innerText = Subtotal;
 
-    const txt = Math.round(Subtotal * 0.1);
+    // const txt = Math.round(Subtotal * 0.1);
+    let txt = Subtotal;
 
+    if(Subtotal > 3000 ){
+        txt= Math.round(Subtotal / 100 * 30);
+    }
+    else if(Subtotal > 2000){
+        txt = Math.round(Subtotal / 100 * 20);
+    }
+    else if(Subtotal > 1000){
+        txt = Math.round(Subtotal / 100 * 10);
+    }
+    else if(Subtotal < 999){
+        txt = Math.round(Subtotal / 100 * 10);
+    }
     // console.log(txt);
     document.getElementById("txttaka").innerText =txt;
 
     const totalTaka = Subtotal + txt;
     document.getElementById("GreandTotal").innerText = totalTaka;
 }
+
 
 function GetInputValu(id){
 
